@@ -1,4 +1,4 @@
-require( 'dotenv' ).config();
+import "dotenv/config";
 require( 'colors' );
 
 import Server from './models/Server';
