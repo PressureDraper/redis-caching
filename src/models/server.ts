@@ -1,10 +1,11 @@
 import 'colors';
-import express, { Express } from 'express';
-import { createServer } from 'https';
-import http from 'http';
-import fs from 'fs';
 import cors from 'cors';
+import express, { Express } from 'express';
+import fs from 'fs';
+import http from 'http';
+import https, { createServer } from 'https';
 import routerBase from '../routes/base.js';
+
 /* import routeVacation from '../routes/vacation';
 import routeEmployee from '../routes/employees';
 import routePerson from '../routes/person';
@@ -17,7 +18,7 @@ import fileUpload from 'express-fileupload'; */
 
 class Server {
     private app: Express;
-    private server: any;
+    private server: http.Server | https.Server;
     public port: number;
 
     constructor() {
@@ -56,7 +57,7 @@ class Server {
     execute() {
         this.middlewares();
         this.server.listen(this.port, () => {
-            process.env.ENVIRONMENT == 'productivo'
+            process.env.ENVIRONMENT == 'production'
                 ? console.log(
                       `Server Settings ready in https://redis.ssaver.gob.mx:${this.port}`.america,
                   )
