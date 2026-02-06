@@ -6,9 +6,10 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint ./src",
-    "lint:fix": "eslint ./src --fix --cache",
-    "format": "prettier ./src --write",
+    "lint": "biome check ./src",
+    "lint:fix": "biome check ./src --write",
+    "format": "biome format ./src --write",
+    "predev": "pnpm run lint:fix && pnpm run format && tsx src/index.ts",
     "dev": "tsx watch src/index.ts"
   },
   "keywords": [],
@@ -16,13 +17,8 @@
   "license": "ISC",
   "packageManager": "pnpm@10.24.0",
   "devDependencies": {
+    "@biomejs/biome": "2.3.14",
     "@types/node": "^25.2.0",
-    "@typescript-eslint/eslint-plugin": "^8.54.0",
-    "@typescript-eslint/parser": "^8.54.0",
-    "eslint": "^9.39.2",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.5",
-    "prettier": "^3.8.1",
     "typescript": "^5.9.3"
   },
   "dependencies": {
