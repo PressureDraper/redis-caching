@@ -1,11 +1,11 @@
-import "dotenv/config";
-require( 'colors' );
+import 'dotenv/config';
+import 'colors';
 
-import Server from './models/Server';
+import Server from './models/Server.js';
 
 const server = new Server();
 
-(BigInt.prototype as any).toJSON  = function () {
+(BigInt.prototype as any).toJSON = function () {
     return parseInt(this.toString());
 };
 

@@ -1,8 +1,7 @@
-import { PrismaClient } from "../generated/prisma/client";
+import { PrismaClient } from '../generated/prisma/client.js';
 
+let db: PrismaClient;
 
-let db : PrismaClient;
-
-db = new PrismaClient();
+db = new PrismaClient({ log: ['query', 'info'] });
 
 export { db };
