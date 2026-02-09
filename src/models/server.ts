@@ -4,17 +4,8 @@ import express, { Express } from 'express';
 import fs from 'fs';
 import http from 'http';
 import https, { createServer } from 'https';
-import routerBase from '../routes/base.js';
-
-/* import routeVacation from '../routes/vacation';
-import routeEmployee from '../routes/employees';
-import routePerson from '../routes/person';
-import routeHolidays from '../routes/holidays';
-import routeShifts from '../routes/shifts';
-import routeReports from '../routes/reports';
-import routePermissions from '../routes/permissions';
-import routerSign from '../routes/sign';
-import fileUpload from 'express-fileupload'; */
+import routerBase from '../routes/base.routes.js';
+import routerEmployee from '../routes/employee.routes.js';
 
 class Server {
     private app: Express;
@@ -40,18 +31,8 @@ class Server {
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));
         this.app.use(cors({ origin: '*' }));
-        /* this.app.use(fileUpload({
-            limits: { fileSize: 50 * 1024 * 1024 },
-        })); */
         this.app.use('/', routerBase);
-        /* this.app.use('/api/rh/vacation', routeVacation);
-        this.app.use('/api/rh/employee', routeEmployee);
-        this.app.use('/api/rh/person', routePerson);
-        this.app.use('/api/rh/holidays', routeHolidays);
-        this.app.use('/api/rh/shifts', routeShifts);
-        this.app.use('/api/rh/reports', routeReports);
-        this.app.use('/api/rh/permissions', routePermissions);
-        this.app.use('/api/rh/sing', routerSign); */
+        this.app.use('/api/v1/employee', routerEmployee);
     }
 
     execute() {
