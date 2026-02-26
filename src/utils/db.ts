@@ -1,7 +1,10 @@
-import { PrismaClient } from '../generated/prisma/client.js';
+import { PrismaMariaDb } from '@prisma/adapter-mariadb';
+import { PrismaClient } from '../generated/prisma/client';
 
 let db: PrismaClient;
 
-db = new PrismaClient({ log: ['query', 'info'] });
+const adapter = new PrismaMariaDb(process.env.DATABASE_URL || '');
+
+db = new PrismaClient({ adapter });
 
 export { db };

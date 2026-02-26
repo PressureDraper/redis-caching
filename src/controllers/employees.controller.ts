@@ -8,7 +8,7 @@ export class EmployeeController {
         this.employeeService = new EmployeeService();
     }
 
-    public getAllEmployees = async (req: Request, res: Response) => {
+    public getAllEmployees = async (_req: Request, res: Response) => {
         try {
             const employees = await this.employeeService.getEmployees();
             res.status(200).json(employees);

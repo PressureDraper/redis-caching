@@ -1,16 +1,32 @@
+import { db } from '../utils/db.js';
+
 export class EmployeeService {
     async getEmployees() {
-        return [
-            {
-                id: 1,
-                name: 'John Doe',
-                position: 'Software Engineer',
+        const res = db.rch_empleados.findMany({
+            select: {
+                cmp_persona: {
+                    select: {
+                        nombres: true,
+                        primer_apellido: true,
+                        segundo_apellido: true,
+                        curp: true,
+                        estado_nacimiento: true,
+                        fecha_nacimiento: true,
+                        sexo: true,
+                        rfc: true,
+                        cmp_contactos: {
+                            select: {
+                                descripcion: true,
+                                observaciones: true,
+                            },
+                        },
+                    },
+                },
+                matricula: true,
             },
-            {
-                id: 2,
-                name: 'Jane Smith',
-                position: 'Product Manager',
-            },
-        ];
+            orderBy: { matricula: 'asc' },
+        });
+
+        return res;
     }
 }
