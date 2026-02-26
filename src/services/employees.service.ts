@@ -6,6 +6,7 @@ export class EmployeeService {
             select: {
                 cmp_persona: {
                     select: {
+                        id: true,
                         nombres: true,
                         primer_apellido: true,
                         segundo_apellido: true,
@@ -14,12 +15,25 @@ export class EmployeeService {
                         fecha_nacimiento: true,
                         sexo: true,
                         rfc: true,
+                        cat_ocupaciones: {
+                            select: {
+                                id: true,
+                                nombre: true,
+                            },
+                        },
                         cmp_contactos: {
                             select: {
                                 descripcion: true,
                                 observaciones: true,
                             },
                         },
+                    },
+                },
+                cat_puestos: {
+                    select: {
+                        id: true,
+                        nombre: true,
+                        codigo: true,
                     },
                 },
                 matricula: true,
