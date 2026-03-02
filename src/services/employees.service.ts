@@ -13,6 +13,7 @@ export class EmployeeService {
                         curp: true,
                         estado_nacimiento: true,
                         fecha_nacimiento: true,
+
                         sexo: true,
                         rfc: true,
                         cat_ocupaciones: {
@@ -23,10 +24,14 @@ export class EmployeeService {
                         },
                         cmp_contactos: {
                             select: {
+                                id: true,
                                 descripcion: true,
                                 observaciones: true,
                             },
                         },
+                        created_at: true,
+                        updated_at: true,
+                        deleted_at: true,
                     },
                 },
                 cat_puestos: {
@@ -36,7 +41,41 @@ export class EmployeeService {
                         codigo: true,
                     },
                 },
+                cat_departamentos: {
+                    select: {
+                        id: true,
+                        nombre: true,
+                        created_at: true,
+                        updated_at: true,
+                        deleted_at: true,
+                    },
+                },
+                cat_tipos_empleado: {
+                    select: {
+                        id: true,
+                        nombre: true,
+                        created_at: true,
+                        updated_at: true,
+                        deleted_at: true,
+                    },
+                },
+                cat_categorias: {
+                    select: {
+                        id: true,
+                        nombre: true,
+                        area: true,
+                        codigo: true,
+                        created_at: true,
+                        updated_at: true,
+                        deleted_at: true,
+                    },
+                },
+                checa: true,
+                activo: true,
                 matricula: true,
+                created_at: true,
+                updated_at: true,
+                deleted_at: true,
             },
             orderBy: { matricula: 'asc' },
         });
