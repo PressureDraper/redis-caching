@@ -2,6 +2,7 @@ import { db } from '../utils/db.js';
 
 export class EmployeeService {
     async getEmployees() {
+        console.log('query to db');
         const res = db.rch_empleados.findMany({
             select: {
                 cmp_persona: {
