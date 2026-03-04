@@ -24,10 +24,10 @@ export class EmployeeController {
             }
 
             console.log('Cache saving');
-            
+
             const employees = await this.employeeService.getEmployees();
             await client.set('cache:allEmployees:v1', JSON.stringify(employees));
-            
+
             res.status(200).json(employees);
         } catch (error) {
             res.status(500).json({ message: 'getAllEmployees: ', error });
