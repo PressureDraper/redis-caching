@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { EmployeeService } from '../services/employees.service.js';
 import client from '../lib/redis.js';
+import { EmployeeService } from '../services/employees.service.js';
 
 export class EmployeeController {
     private employeeService: EmployeeService;
